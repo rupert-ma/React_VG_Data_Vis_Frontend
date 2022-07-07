@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from "axios";
+
 
 function App() {
   const [videoGames, setVideoGames]=useState([]);
 
+useEffect(() => {
+  getAllVideoGames();
+},[])
 
-
-
-  const getVideoGames() {
-    console.log("")
+  const getAllVideoGames = async () => {
+    let response = await axios.get("http://localhost:8080/all");
+    console.log(response.data)
+    setVideoGames(response.data)
   }
-
-
 
 
   return (
     <div>
-      
+      Test
     </div>
   );
 }

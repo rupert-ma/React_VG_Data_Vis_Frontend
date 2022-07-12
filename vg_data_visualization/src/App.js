@@ -6,6 +6,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import DisplayChart from "./Components/DisplayChart/DisplayChart";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import DisplaySearchResults from "./Components/DisplaySearchResults/DisplaySearchResults";
+import DisplayBubbleChart from "./Components/DisplayBubbleChart/DisplayBubbleChart";
 
 function App() {
     const [videoGames, setVideoGames] = useState([]);
@@ -49,6 +50,7 @@ function App() {
             </header>
             <main>
                 <DisplayChart videoGames={videoGames} />
+                <DisplayBubbleChart videoGames={videoGames}/>
                 <SearchBar searchForGame={searchForGame} />
                 <DisplaySearchResults searchResult={searchResult} />
             </main>

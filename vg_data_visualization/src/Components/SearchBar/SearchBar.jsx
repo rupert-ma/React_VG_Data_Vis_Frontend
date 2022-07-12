@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 const SearchBar = ({ searchForGame }) => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState("");
 
     function handleSubmit(event) {
         event.preventDefault(event);
-        console.log('handlesubmit' ,searchTerm);
+        console.log("handlesubmit", searchTerm);
         searchForGame(searchTerm);
     }
 
@@ -19,8 +19,8 @@ const SearchBar = ({ searchForGame }) => {
                     value={searchTerm}
                     onChange={(event) => setSearchTerm(event.target.value)}
                 ></input>
+                <button type="submit">Search</button>
             </form>
-            <button type="submit">Search</button>
         </div>
     );
 };

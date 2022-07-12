@@ -48,7 +48,7 @@ function App() {
             <header>
                 <NavBar />
             </header>
-            <main>
+            <main className="grid">
                 <DisplayChart videoGames={videoGames} />
                 <DisplayBubbleChart videoGames={videoGames}/>
                 <SearchBar searchForGame={searchForGame} />

@@ -2,17 +2,17 @@ import React, { useState } from "react";
 
 const DisplaySearchResults = ({ searchResult }) => {
     return (
-        <div>
+        <div className="d-flex">
             {searchResult.map((videoGame, index) => {
                 return (
-                    <div>
-                        <div
-                            className="card text-white bg-primary mb-3"
-                            
+                    <div key={index}>
+                        <div 
+                            className="card bg-secondary mb-3"
+                            style={{maxwidth: "10em", margin:"5px"}}
                         >
                             <div className="card-header">{videoGame.name}</div>
                             <div className="card-body">
-                                <ul key={index}>
+                                <ul >
                                     {/* <li>Name: {videoGame.name}</li> */}
                                     <li>Genre: {videoGame.genre}</li>
                                     <li>Year: {videoGame.year}</li>

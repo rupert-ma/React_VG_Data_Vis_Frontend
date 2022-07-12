@@ -4,13 +4,20 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "./Components/NavBar/NavBar";
 import DisplayChart from "./Components/DisplayChart/DisplayChart";
+import SearchBar from "./Components/SearchBar/SearchBar";
+import DisplaySearchResults from "./Components/DisplaySearchResults/DisplaySearchResults";
 
 function App() {
     const [videoGames, setVideoGames] = useState([]);
+    const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
         getAllVideoGames();
     }, []);
+
+    // useEffect(() => {
+    //     searchForGame(searchResult);
+    // }, []);
 
     const getAllVideoGames = async () => {
         try {
@@ -22,6 +29,19 @@ function App() {
         }
     };
 
+    function searchForGame(searchTerm) {
+        console.log(searchTerm);
+        let filteredGames = videoGames.filter(function (videoGame) {
+            if (
+                videoGame.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+                return true;
+            }
+        });
+        setSearchResult(filteredGames);
+        console.log('searchresult', searchResult);
+    }
+
     return (
         <div>
             <header>
@@ -29,6 +49,8 @@ function App() {
             </header>
             <main>
                 <DisplayChart videoGames={videoGames} />
+                <SearchBar searchForGame={searchForGame} />
+                <DisplaySearchResults searchResult={searchResult} />
             </main>
         </div>
     );
@@ -44,5 +66,5 @@ export default App;
 // TODO: Axios call to backend API
 // TODO: Render returned data
 // TODO: DisplayList component
-// TODO:
+// TODO: SearchBar Component
 // TODO: ChartComponent to display just searched criteria(video game by console)

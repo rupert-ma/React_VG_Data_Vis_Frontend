@@ -9,12 +9,12 @@ const DisplayChart = ({ videoGames }) => {
 
     function generateDataForChart() {
         let filteredGames = videoGames.filter((game) => game.year > 2013);
-        console.log("filtered games", filteredGames);
+        // console.log("filtered games", filteredGames);
 
         let platforms = filteredGames.map((game) => {
             return game.platform;
         });
-        console.log("platforms", platforms);
+        // console.log("platforms", platforms);
 
         // let platformsAndSales = platforms.map((platform, index) => [
         //     platform,
@@ -23,7 +23,7 @@ const DisplayChart = ({ videoGames }) => {
         // console.log("platformsandsales", platformsAndSales);
 
         let distinctPlatforms = [...new Set(platforms)];
-        console.log("distinct platforms", distinctPlatforms);
+        // console.log("distinct platforms", distinctPlatforms);
 
         let platformArrays = distinctPlatforms.map((platform) => {
             //// loop through allgamesforplatform and sum each games global sales
@@ -34,11 +34,11 @@ const DisplayChart = ({ videoGames }) => {
                                 return (accumulator + curr.globalsales);
                             },0);
 
-            console.log("allGamesSalesByPlatform", allGamesSalesByPlatform);
+            // console.log("allGamesSalesByPlatform", allGamesSalesByPlatform);
 
             return [platform, allGamesSalesByPlatform];
         });
-        console.log("platform arrays", platformArrays);
+        // console.log("platform arrays", platformArrays);
 
         const data = [["Platform", "Total Sales"], ...platformArrays];
 
